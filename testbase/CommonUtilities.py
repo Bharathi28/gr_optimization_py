@@ -40,6 +40,7 @@ def populateoutputexcel():
         if SheetName in wb.sheetnames:
             print(SheetName + ' sheet is exists')
         else:
+            workbook = xlsxwriter.Workbook(abs_file_path)
             worksheet = workbook.add_worksheet(SheetName)
     else:
         print("New file Name : " + abs_file_path)
@@ -61,7 +62,7 @@ def populateoutputexcel():
         # col = 0
 
         row_1 = 1
-
+        header_list_buy(worksheet)
         # Iterate over the data and write it out row by row.
         # for item, cost in (expenses):
         #     worksheet.write(row, col, item)
@@ -83,3 +84,21 @@ def populateoutputexcel():
         # worksheet.write(row, 1, '=SUM(B1:B4)')
 
         workbook.close()
+
+
+def header_list_buy(worksheet):
+    # Heading
+    worksheet.write(0, 0, "Environment")
+    worksheet.write(0, 1, "Brand")
+    worksheet.write(0, 2, "Campaign")
+    worksheet.write(0, 3, "Category")
+    worksheet.write(0, 4, "e-mail")
+    worksheet.write(0, 5, "Expected PPID")
+    worksheet.write(0, 6, "Actual PPID")
+    worksheet.write(0, 7, "Confirmation Number")
+    worksheet.write(0, 8, "Checkout Pricing")
+    worksheet.write(0, 9, "Confirmation Pricing")
+    worksheet.write(0, 10, "Shipping Billing")
+    worksheet.write(0, 11, "Card")
+    worksheet.write(0, 12, "Browser")
+

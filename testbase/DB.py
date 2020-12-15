@@ -35,7 +35,7 @@ def get_url(env, brand, campaign):
 
 
 def get_url2():
-    query = "select produrl  from campaign_urls"
+    query = "select produrl from campaign_urls"
     print(query)
     query_d = db_connection(query)
     return query_d
@@ -60,3 +60,6 @@ def get_cta_locators(env, brand, campaign):
         query_d = db_connection(query)
         print(query_d.__getitem__(0)[0])
         return query_d.__getitem__(0)[0]
+
+
+db_connection(get_url("QA", "CrepeErase", "core"))
